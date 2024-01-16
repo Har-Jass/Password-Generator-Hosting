@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="./index.css">
+
+    <link rel="icon" type="image/x-icon" href="./images/favicon.png"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;600&display=swap"
+      rel="stylesheet"
+    />
+</head>
+<body>
+    <!-- top level entity -->
+    <div class="container">
+        <!-- 1st part -> top heading, i.e, name of the project -->
+        <h1>Password Generator</h1>
+
+        <!-- 2nd part -> which contains the text field where we can see our generated password and that copy button -->
+        <div class="display-container">
+            <!-- first we have the part where we can only read our generated password -->
+            <!-- so we mark it read only -->
+            <!-- querySelector wale method se custom attribute ki help se bhi element fetch krr skte hai -->
+            <!-- "data-passwordDisplay" is the custom attribute here in below element --> 
+            <input readonly placeholder="Password" class="display" data-passwordDisplay>
+
+            <!-- second we have copy button in the 2nd part -->
+            <!-- button pe jb bhi click krte hai "copied" text aata hai -->
+            <button class="copyBtn" data-copy>
+                <!-- custom attribute for span element is "data-copyMsg" -->
+                <span class="tooltip" data-copyMsg></span>
+
+                <!-- copy wali image -->
+                <img src="./images/copy.svg" alt="copy" width="23" height="23">
+            </button>
+        </div>
+
+        <!-- 3rd part -> input container -->
+        <div class="input-container">
+            <!-- now we make password length and number showing container -->
+            <div class="length-container">
+                <!-- Password Length Text -->
+                <p>Password Length</p>
+
+                <!-- Number Show and initially it is 0 and its custom attribute is "data-lengthNumber" -->
+                <!-- we change this number using slider and javascript code -->
+                <p data-lengthNumber>0</p>
+            </div>
+
+            <!-- now we make a slider which controls password length -->
+            <!-- its custom attribute is "data-lengthSlider" -->
+            <input type="range" min="1" max="20" class="slider" step="1" data-lengthSlider>
+
+            <!-- now we make checkboxes and labels, all the checkboxes and labels comes under a single div  -->
+            <div class="check">
+                <input type="checkbox" id="uppercase">
+                <label for="uppercase">Include Uppercase Letters</label>
+            </div>
+
+            <div class="check">
+                <input type="checkbox" id="lowercase">
+                <label for="lowercase">Include Lowercase Letters</label>
+            </div>
+
+            <div class="check">
+                <input type="checkbox" id="numbers">
+                <label for="numbers">Include Numbers</label>
+            </div>
+
+            <div class="check">
+                <input type="checkbox" id="symbols">
+                <label for="symbols">Include Symbols</label>
+            </div>
+
+            <!-- now we make the strength wala part in which we show the strength of the password with the Red and Green color circle -->
+            <div class="strength-container">
+                <!-- text -->
+                <p>Strength</p>
+
+                <!-- color -->
+                <!-- custom attribute of this div is "data-indicator" -->
+                <div class="indicator" data-indicator></div>
+            </div>
+
+            <!--  now we make the last section, i.e., generate password button -->
+            <button class="generateButton">Generate Password</button>
+        </div>
+    </div>
+
+    <!-- linking js file -->
+    <script src="./index.js"></script>
+</body>
+</html>
